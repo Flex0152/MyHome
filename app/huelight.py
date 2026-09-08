@@ -77,23 +77,4 @@ class HueLight:
 
 
 if __name__ == "__main__":
-    import yaml
-    current_folder = Path(__file__).parent
-    config_path = current_folder / "secrets" / "config.yml"
-
-    config = read_config(config_path)
-    api = config["general"]["api"]
-    url = config["general"]["url"]
-    lamp_id = config["lamps"]["hue_play_2"]
-
-    light1 = HueLight(api, lamp_id, url)
-
-    light1.turn_on()
-    status = light1.is_on()
-    print(f"Lampe ist {'eingeschaltet' if status else "ausgeschaltet"}")
-
-    sleep(5)
-
-    light1.turn_off()
-    status = light1.is_on()
-    print(f"Lampe ist {'eingeschaltet' if status else "ausgeschaltet"}")
+    ...

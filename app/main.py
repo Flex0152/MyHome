@@ -51,4 +51,4 @@ for light in lights:
             ui.button("Ein", on_click=turn_on)
             ui.button("Aus", on_click=turn_off)
 
-ui.run()
+ui.run(host="0.0.0.0", port=8081)
