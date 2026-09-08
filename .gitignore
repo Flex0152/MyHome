@@ -10,4 +10,4 @@ wheels/
 .venv
 
 *.pem
-*.yml
+config.yml
