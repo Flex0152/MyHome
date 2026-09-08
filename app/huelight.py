@@ -7,7 +7,7 @@ import yaml
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
-def read_config(path: Path) -> dict:
+def read_config(path: str) -> dict:
     try:
         with open(path) as f:
             return yaml.safe_load(f)
@@ -20,14 +20,19 @@ class HueLight:
     def __init__(
         self, 
         api_key: str, 
-        light_id: str, 
+        light_id: str,
+        light_name: str, 
         base_url: str
     ):
         self.api_key = api_key
         self.light_id = light_id
         self.base_url = base_url
+        self.light_name = light_name
 
         self.light_endpoint = f"{self.base_url}/{self.light_id}" 
+
+    def __repr__(self):
+        return f"<id: {self.light_id}; name: {self.light_name}>"
 
     def _set_on_state(self, light_on: bool) -> bool:
         response = requests.put(
